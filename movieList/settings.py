@@ -124,3 +124,7 @@ STATIC_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'boot'),
 ]
+
+# Set the expiration for the request session
+
+SESSION_COOKIE_AGE = 1 * 60  # 1 minute

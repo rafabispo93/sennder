@@ -1,15 +1,16 @@
 from django.shortcuts import render
 import requests
-import json
 
 API_URL = 'https://ghibliapi.herokuapp.com/'
 
 
 def movies_list(request):
     try:
-        response = requests.get(API_URL + 'films')
-        # print(response.json())
-        films = response.json()
+        is_cached = ('films' in request.session)
+        if not is_cached:
+            response = requests.get(API_URL + 'films')
+            request.session['films'] = response.json()
+        films = request.session['films']
         return render(request,
                       'movies/movies_list.html',
                       {'films': films})
