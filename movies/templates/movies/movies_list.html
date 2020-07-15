@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Director</th>
+                <th scope="col">Producer</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for film in films %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{film.title}}</td>
+                    <td>{{film.description}}</td>
+                    <td>{{film.director}}</td>
+                    <td>{{film.producer}}</td>
+                    <td>{{film.release_date}}</td>
+                    <td>{{film.rt_score}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </body>
+</html>
