@@ -1,4 +1,6 @@
 <html>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
     <body>
         <table class="table">
             <thead>
@@ -10,6 +12,7 @@
                 <th scope="col">Producer</th>
                 <th scope="col">Release Date</th>
                 <th scope="col">Score</th>
+                <th scope="col">People</th>
               </tr>
             </thead>
             <tbody>
@@ -22,6 +25,9 @@
                     <td>{{film.producer}}</td>
                     <td>{{film.release_date}}</td>
                     <td>{{film.rt_score}}</td>
+                    {% for person in film.people %}
+                      <td>{{person}}</td>
+                    {% endfor %}
                 </tr>
                 {% endfor %}
             </tbody>
