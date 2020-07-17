@@ -8,7 +8,8 @@ def movies_list(request):
     try:
         is_cached = ('films' in request.session)
         if not is_cached:
-            request.session['films'] = _get_people_in_films(requests.get(API_URL + 'films').json())
+            request.session['films'] = _get_people_in_films(
+                requests.get(API_URL + 'films').json())
         films = request.session['films']
         return render(request,
                       'movies/movies_list.html',
@@ -33,4 +34,5 @@ def _get_people_in_films(films):
             if p['id'] == film['id']:
                 if p['name'] not in film['people']:
                     film['people'].append(p['name'])
+        film['people'] = ', '.join(film['people'])
     return films

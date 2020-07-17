@@ -1,36 +1,38 @@
 <html>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
-    <body>
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Director</th>
-                <th scope="col">Producer</th>
-                <th scope="col">Release Date</th>
-                <th scope="col">Score</th>
-                <th scope="col">People</th>
-              </tr>
-            </thead>
-            <tbody>
-                {% for film in films %}
-                <tr>
-                    <th scope="row">{{forloop.counter}}</th>
-                    <td>{{film.title}}</td>
-                    <td>{{film.description}}</td>
-                    <td>{{film.director}}</td>
-                    <td>{{film.producer}}</td>
-                    <td>{{film.release_date}}</td>
-                    <td>{{film.rt_score}}</td>
-                    {% for person in film.people %}
-                      <td>{{person}}</td>
-                    {% endfor %}
-                </tr>
-                {% endfor %}
-            </tbody>
-          </table>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap-theme.min.css">
+    <body class="container-fluid">
+      <table class="table table-hover" style="text-align: center">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" style="width:5%">#</th>
+            <th scope="col" style="width:10%">Title</th>
+            <th scope="col" style="width:30%">Description</th>
+            <th scope="col" style="width:10%">Director</th>
+            <th scope="col" style="width:10%">Producer</th>
+            <th scope="col" style="width:10%">Release Date</th>
+            <th scope="col" style="width:5%">Score</th>
+            <th scope="col" style="width:20%">People</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for film in films %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{film.title}}</td>
+                <td>{{film.description}}</td>
+                <td>{{film.director}}</td>
+                <td>{{film.producer}}</td>
+                <td>{{film.release_date}}</td>
+                <td>{{film.rt_score}}</td>
+                {% if film.people %}
+                  <td>{{film.people}}</td>
+                {% else %}
+                  <td>No data</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
     </body>
 </html>
