@@ -14,11 +14,10 @@ def movies_list(request):
                       'movies/movies_list.html',
                       {'films': films})
     except Exception as error:
-        print(error)
         return error
 
 
-def _get_films_ordered_by_most_recent():
+def _get_films_ordered_by_most_recent() -> list:
     # Get the films and order by the most recent
     try:
         filter_data = {
@@ -26,13 +25,13 @@ def _get_films_ordered_by_most_recent():
             'fields': 'id,title,description,director,producer,release_date,rt_score'
         }
         return sorted(_get_people_in_films(
-            requests.get(API_URL + 'films', filter_data).json()), key=lambda k: k['release_date'], reverse=True)
+            requests.get(API_URL + 'films', filter_data).json()), key=lambda k: k['release_date'], reverse=True) 
     except Exception as error:
-        print(error)
         return error
 
 
-def _get_people_in_films(films):
+def _get_people_in_films(films) -> list:
+    # Returns all films with its respectively people
     try:
         filter_data = {
             'limit': 250,
@@ -55,5 +54,4 @@ def _get_people_in_films(films):
             film['people'] = ', '.join(film['people'])
         return films
     except Exception as error:
-        print(error)
         return error
