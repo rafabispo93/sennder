@@ -1,7 +1,6 @@
 # Sennder Python Back-end Assignment: Movie List
 
 This is the Python backend challenge for a position at Sennder
-More details you can find at 
 
 ## Deploy to Heroku
 
