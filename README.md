@@ -14,17 +14,13 @@ You can deploy this app yourself to Heroku to play with.
 It is best to use the python `virtualenv` tool to build locally:
 
 ```sh
-$ python -m venv
-$ source venv/bin/activate or ./venv/Scripts/activate
+$ python -m venv venv
+$ source venv/bin/activate or ./venv/Scripts/activate (Windows)
 $ pip install -r requirements.txt
-$ DEVELOPMENT=1 python manage.py runserver
-```
-
-Then visit `http://localhost:8000/movies/` to view the app:
-
-```sh
 $ python manage.py runserver
 ```
+
+Then visit `http://localhost:8000/movies/` to view the app.
 
 ## Deploy to Heroku
 
