@@ -20,12 +20,10 @@ $ pip install -r requirements.txt
 $ DEVELOPMENT=1 python manage.py runserver
 ```
 
-Then visit `http://localhost:8000/movies/` to view the app. Alternatively you
-can use foreman and gunicorn to run the server locally (after copying
-`dev.env` to `.env`):
+Then visit `http://localhost:8000/movies/` to view the app:
 
 ```sh
-$ foreman start
+$ python manage.py runserver
 ```
 
 ## Deploy to Heroku
